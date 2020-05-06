@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="700.0" style="-fx-background-color: #373737;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.SignUpController">
+   <children>
+      <AnchorPane layoutY="82.0" prefHeight="327.0" prefWidth="700.0" style="-fx-background-color: #616161;">
+         <children>
+            <TextField layoutX="197.0" layoutY="57.0" prefHeight="18.0" prefWidth="306.0" promptText="First Name" />
+            <TextField layoutX="197.0" layoutY="92.0" prefHeight="18.0" prefWidth="306.0" promptText="Last Name" />
+            <TextField layoutX="197.0" layoutY="127.0" prefHeight="18.0" prefWidth="306.0" promptText="Username" />
+            <CheckBox layoutX="197.0" layoutY="164.0" mnemonicParsing="false" text="Male" textFill="WHITE" />
+            <CheckBox layoutX="269.0" layoutY="164.0" mnemonicParsing="false" text="Female" textFill="WHITE" />
+            <Button layoutX="269.0" layoutY="236.0" mnemonicParsing="false" prefHeight="4.0" prefWidth="162.0" style="-fx-background-color: #373737;" text="Submit" textFill="WHITE" />
+            <TextField layoutX="197.0" layoutY="193.0" prefHeight="18.0" prefWidth="306.0" promptText="Location" />
+         </children>
+      </AnchorPane>
+      <Label layoutX="222.0" layoutY="14.0" text="Manage Me!" textFill="WHITE">
+         <font>
+            <Font size="46.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>

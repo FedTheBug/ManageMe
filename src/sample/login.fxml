@@ -1,31 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.Button?>
+<?import com.jfoenix.controls.JFXButton?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="700.0" style="-fx-background-color: #373737;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.LogInController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="700.0" style="-fx-background-color: #373737;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <AnchorPane layoutY="75.0" prefHeight="327.0" prefWidth="700.0" style="-fx-background-color: #616161;">
+      <AnchorPane layoutY="82.0" prefHeight="327.0" prefWidth="700.0" style="-fx-background-color: #616161;">
          <children>
-            <TextField fx:id="LoginUsername" layoutX="215.0" layoutY="82.0" prefHeight="27.0" prefWidth="269.0" promptText="Username" />
-            <PasswordField fx:id="LoginPassword" layoutX="215.0" layoutY="137.0" prefHeight="26.0" prefWidth="270.0" promptText="Password" />
-            <Button fx:id="LoginSubmitButton" layoutX="434.0" layoutY="184.0" mnemonicParsing="false" style="-fx-background-color: #373737;" text="Submit" textFill="WHITE" />
-            <Label layoutX="322.0" layoutY="14.0" text="Login" textFill="WHITE">
-               <font>
-                  <Font size="15.0" />
-               </font>
-            </Label>
-         </children>
-      </AnchorPane>
-      <Label layoutX="222.0" text="Manage Me!" textFill="WHITE">
+            <TextField layoutX="276.0" layoutY="68.0" />
+         </children></AnchorPane>
+      <Label layoutX="222.0" layoutY="14.0" text="Manage Me!" textFill="WHITE">
          <font>
             <Font size="46.0" />
          </font>
       </Label>
-      <Button fx:id="SignUpButton" layoutX="596.0" layoutY="20.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="77.0" text="Sign Up" />
+      <JFXButton layoutX="609.0" layoutY="22.0" style="-fx-background-color: ffff;" text="Sign Up" />
    </children>
 </AnchorPane>

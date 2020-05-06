@@ -16,7 +16,7 @@
                   <Font size="20.0" />
                </font>
             </Label>
-            <ImageView fx:id="AddButton" fitHeight="68.0" fitWidth="74.0" layoutX="316.0" layoutY="130.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView  fx:id="AddButton" fitHeight="68.0" fitWidth="74.0" layoutX="316.0" layoutY="130.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@assets/addItem.png" />
                </image>

@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="jfoenix-9.0.9">
+    <CLASSES>
+      <root url="jar://$MAVEN_REPOSITORY$/com/jfoenix/jfoenix/9.0.9/jfoenix-9.0.9.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

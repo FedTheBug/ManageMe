@@ -1,14 +1,15 @@
 package sample;
 
+import java.net.URL;
+import java.util.ResourceBundle;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
+import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 
-import java.net.URL;
-import java.util.ResourceBundle;
-
 public class SignUpController {
+
     @FXML
     private ResourceBundle resources;
 
@@ -16,10 +17,10 @@ public class SignUpController {
     private URL location;
 
     @FXML
-    private TextField SignUpLastName;
+    private TextField SignUpFirstName;
 
     @FXML
-    private TextField SignUpFirstName;
+    private TextField SignUpLastName;
 
     @FXML
     private TextField SignUpUsername;
@@ -37,7 +38,13 @@ public class SignUpController {
     private TextField SignUpLocation;
 
     @FXML
+    private PasswordField SignUpPassword;
+
+    @FXML
     void initialize() {
+        SignUpSubmitButton.setOnAction(event -> {
+            System.out.println("Button Pressed");
+        });
 
     }
 }

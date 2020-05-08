@@ -3,6 +3,7 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.CheckBox?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
@@ -11,13 +12,14 @@
    <children>
       <AnchorPane layoutY="82.0" prefHeight="327.0" prefWidth="700.0" style="-fx-background-color: #616161;">
          <children>
-            <TextField layoutX="197.0" layoutY="57.0" prefHeight="18.0" prefWidth="306.0" promptText="First Name" />
-            <TextField layoutX="197.0" layoutY="92.0" prefHeight="18.0" prefWidth="306.0" promptText="Last Name" />
-            <TextField layoutX="197.0" layoutY="127.0" prefHeight="18.0" prefWidth="306.0" promptText="Username" />
-            <CheckBox layoutX="197.0" layoutY="164.0" mnemonicParsing="false" text="Male" textFill="WHITE" />
-            <CheckBox layoutX="269.0" layoutY="164.0" mnemonicParsing="false" text="Female" textFill="WHITE" />
-            <Button layoutX="269.0" layoutY="236.0" mnemonicParsing="false" prefHeight="4.0" prefWidth="162.0" style="-fx-background-color: #373737;" text="Submit" textFill="WHITE" />
-            <TextField layoutX="197.0" layoutY="193.0" prefHeight="18.0" prefWidth="306.0" promptText="Location" />
+            <TextField fx:id="SignUpFirstName" layoutX="197.0" layoutY="35.0" prefHeight="18.0" prefWidth="306.0" promptText="First Name" />
+            <TextField fx:id="SignUpLastName" layoutX="197.0" layoutY="70.0" prefHeight="18.0" prefWidth="306.0" promptText="Last Name" />
+            <TextField fx:id="SignUpUsername" layoutX="197.0" layoutY="103.0" prefHeight="18.0" prefWidth="306.0" promptText="Username" />
+            <CheckBox fx:id="SignUpMaleCheckbox" layoutX="197.0" layoutY="173.0" mnemonicParsing="false" text="Male" textFill="WHITE" />
+            <CheckBox fx:id="SignUpFemaleCheckbox" layoutX="280.0" layoutY="173.0" mnemonicParsing="false" text="Female" textFill="WHITE" />
+            <Button fx:id="SignUpSubmitButton" layoutX="269.0" layoutY="246.0" mnemonicParsing="false" prefHeight="4.0" prefWidth="162.0" style="-fx-background-color: #373737;" text="Submit" textFill="WHITE" />
+            <TextField fx:id="SignUpLocation" layoutX="197.0" layoutY="201.0" prefHeight="18.0" prefWidth="306.0" promptText="Location" />
+            <PasswordField fx:id="SignUpPassword" layoutX="197.0" layoutY="137.0" prefHeight="26.0" prefWidth="306.0" promptText="Password" />
          </children>
       </AnchorPane>
       <Label layoutX="222.0" layoutY="14.0" text="Manage Me!" textFill="WHITE">

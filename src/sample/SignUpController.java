@@ -43,8 +43,29 @@ public class SignUpController {
     @FXML
     void initialize() {
         SignUpSubmitButton.setOnAction(event -> {
-            System.out.println("Button Pressed");
+            CreateUser();
         });
+    }
+    private void CreateUser(){
+        DBHandler dbHandler = new DBHandler();
+        String FirstName = SignUpFirstName.getText();
+        String LastName = SignUpLastName.getText();
+        String UserName = SignUpUsername.getText();
+        String password = SignUpPassword.getText();
+        String location = SignUpLocation.getText();
+        String gender = "";
+        if(SignUpMaleCheckbox.isSelected()){
+            gender = "Male";
+        }
+        else if(SignUpFemaleCheckbox.isSelected()){
+            gender = "Female";
+        }
+        else{
+            System.out.println("Please Enter a Valid Gender");
+        }
+        User user = new User(FirstName, LastName,UserName, password, location, gender);
+
+        dbHandler.SignUpUser(user);
 
     }
 }

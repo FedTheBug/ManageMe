@@ -10,5 +10,6 @@
     <orderEntry type="library" name="JavaFX-11" level="application" />
     <orderEntry type="library" exported="" name="com.jfoenix:jfoenix:9.0.9" level="application" />
     <orderEntry type="library" exported="" name="jfoenix-9.0.9" level="project" />
+    <orderEntry type="library" name="mysql-connector-java-8.0.19" level="project" />
   </component>
 </module>

@@ -4,6 +4,8 @@ import com.jfoenix.controls.JFXButton;
 
 import java.io.IOException;
 import java.net.URL;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ResourceBundle;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -33,18 +35,32 @@ public class LogInController {
     @FXML
     private JFXButton SignUpButton;
 
+    private DBHandler dbHandler;
+
     @FXML
     void initialize() {
-        String LoginUsrname = LoginUsername.getText().trim();
-        String LoginPwd = LoginPassword.getText().trim();
+        dbHandler = new DBHandler();
 
         LoginButton.setOnAction(event -> {
-            if(!LoginUsrname.equals("") || !LoginPwd.equals("")){
-                loginUser(LoginUsrname, LoginPwd);
+
+            String LoginUsrname = LoginUsername.getText().trim();
+            String LoginPwd = LoginPassword.getText().trim();
+            User user = new User();
+            user.setUserName(LoginUsrname);
+            user.setPassword(LoginPwd);
+            try {
+                ResultSet userRow = dbHandler.getUser(user);
+                int count = 0;
+                while(userRow.next()){
+                    count++;
+                }
+                if(count == 1){
+                    System.out.println("Login Successful");
+                }
+            } catch (SQLException throwables) {
+                throwables.printStackTrace();
             }
-            else{
-                System.out.println("Error in Logging In");
-            }
+
         });
         SignUpButton.setOnAction(event -> {
             //Take the user to signup screen
@@ -65,8 +81,5 @@ public class LogInController {
 
     }
 
-    private void loginUser(String UserName, String Password) {
-        //Check in the DB if the user exists or not.
 
-    }
 }

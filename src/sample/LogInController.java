@@ -53,9 +53,17 @@ public class LogInController {
                 int count = 0;
                 while(userRow.next()){
                     count++;
+                    String name = userRow.getString("FirstName");
+                    System.out.println("Login Successful!" + name);
                 }
                 if(count == 1){
-                    System.out.println("Login Successful");
+                    System.out.println("Login Successful!");
+                }
+                else{
+                    Shaker usernameShaker = new Shaker(LoginUsername);
+                    Shaker passwordShaker = new Shaker(LoginPassword);
+                    usernameShaker.shake();
+                    passwordShaker.shake();
                 }
             } catch (SQLException throwables) {
                 throwables.printStackTrace();

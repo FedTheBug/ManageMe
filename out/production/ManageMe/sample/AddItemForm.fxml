@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="700.0" style="-fx-background-color: #616161;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.AddItemFormController">
+   <children>
+      <TextField fx:id="TaskField" layoutX="199.0" layoutY="53.0" prefHeight="33.0" prefWidth="302.0" promptText="Task" />
+      <TextField fx:id="DescriptionField" layoutX="199.0" layoutY="104.0" prefHeight="113.0" prefWidth="302.0" promptText="Description" />
+      <JFXButton fx:id="SaveTaskButton" layoutX="308.0" layoutY="244.0" style="-fx-background-color: #373737;" text="Save Task" textFill="WHITE">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </JFXButton>
+   </children>
+</AnchorPane>

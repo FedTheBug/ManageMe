@@ -6,17 +6,11 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-
 <AnchorPane prefHeight="400.0" prefWidth="700.0" style="-fx-background-color: #373737;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.AddItemController">
    <children>
-      <AnchorPane layoutY="82.0" prefHeight="327.0" prefWidth="700.0" style="-fx-background-color: #616161;">
+      <AnchorPane fx:id="RootAnchorPane" layoutY="82.0" prefHeight="327.0" prefWidth="700.0" style="-fx-background-color: #616161;">
          <children>
-            <Label layoutX="243.0" layoutY="78.0" text="No Tasks for Today, Yet!" textFill="WHITE">
-               <font>
-                  <Font size="20.0" />
-               </font>
-            </Label>
-            <ImageView  fx:id="AddButton" fitHeight="68.0" fitWidth="74.0" layoutX="316.0" layoutY="130.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="AddButton" fitHeight="68.0" fitWidth="74.0" layoutX="316.0" layoutY="130.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@assets/addItem.png" />
                </image>

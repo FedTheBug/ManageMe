@@ -1,20 +1,24 @@
 package sample;
 
+import java.sql.Time;
+import java.sql.Timestamp;
+
 public class Task {
-    private long DateCreated;
+    private int UserID;
+    private Timestamp DateCreated;
     private String description;
     private String task;
 
     public Task() {
     }
 
-    public Task(long dateCreated, String description, String task) {
+    public Task(Timestamp dateCreated, String description, String task) {
         DateCreated = dateCreated;
         this.description = description;
         this.task = task;
     }
 
-    public long getDateCreated() {
+    public Timestamp getDateCreated() {
         return DateCreated;
     }
 
@@ -26,7 +30,7 @@ public class Task {
         return task;
     }
 
-    public void setDateCreated(long dateCreated) {
+    public void setDateCreated(Timestamp dateCreated) {
         DateCreated = dateCreated;
     }
 
@@ -36,5 +40,13 @@ public class Task {
 
     public void setTask(String task) {
         this.task = task;
+    }
+
+    public void setUserID(int userID) {
+        UserID = userID;
+    }
+
+    public int getUserID() {
+        return UserID;
     }
 }

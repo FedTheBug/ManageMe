@@ -49,5 +49,20 @@ public class DBHandler extends Config{
         return resultSet;
 
     }
+    public void InsertTask(Task task){
+        String insert = "INSERT INTO " + Const.TASKS_TABLE + "(" + Const.TASKS_TASK + ","+ Const.USERS_ID +","  + Const.TASKS_DATE + ","+
+                Const.TASKS_DESCRIPTION +")"+ "VALUES(?,?,?,?)";
+
+        try (PreparedStatement preparedStatement = getDbConnection().prepareStatement(insert)) {
+            preparedStatement.setString(1,task.getTask());
+            preparedStatement.setInt(2, task.getUserID());
+            preparedStatement.setTimestamp(3,task.getDateCreated());
+            preparedStatement.setString(4,task.getDescription());
+
+            preparedStatement.executeUpdate();
+        }catch (SQLException e){
+            e.printStackTrace();
+        }
+    }
 
 }

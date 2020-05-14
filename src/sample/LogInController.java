@@ -17,6 +17,8 @@ import javafx.stage.Stage;
 
 public class LogInController {
 
+    private int UserID;
+
     @FXML
     private ResourceBundle resources;
 
@@ -53,11 +55,12 @@ public class LogInController {
                 int count = 0;
                 while(userRow.next()){
                     count++;
+                    UserID = userRow.getInt("userid");
                     String name = userRow.getString("FirstName");
                     System.out.println("Login Successful!" + name);
                 }
                 if(count == 1){
-                    System.out.println("Login Successful!");
+                    ShowAddItem();
                 }
                 else{
                     Shaker usernameShaker = new Shaker(LoginUsername);
@@ -86,7 +89,26 @@ public class LogInController {
             stage.setScene(new Scene(root));
             stage.showAndWait();
         });
+    }
+    private void ShowAddItem(){
+        //Take the user to signup screen
+        LoginButton.getScene().getWindow().hide();
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(getClass().getResource("/sample/AddItem.fxml"));
+        try {
+            loader.load();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
 
+        Parent root = loader.getRoot();
+        Stage stage = new Stage();
+        stage.setScene(new Scene(root));
+
+        AddItemController addItemController = loader.getController();
+        addItemController.setUserID(UserID);
+
+        stage.showAndWait();
     }
 
 

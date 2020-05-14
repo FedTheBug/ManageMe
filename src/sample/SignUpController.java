@@ -2,6 +2,8 @@ package sample;
 
 import java.net.URL;
 import java.util.ResourceBundle;
+
+import com.jfoenix.controls.JFXButton;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
@@ -32,7 +34,7 @@ public class SignUpController {
     private CheckBox SignUpFemaleCheckbox;
 
     @FXML
-    private Button SignUpSubmitButton;
+    private JFXButton SignUpSubmitButton;
 
     @FXML
     private TextField SignUpLocation;

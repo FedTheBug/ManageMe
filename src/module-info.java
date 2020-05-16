@@ -5,4 +5,5 @@ module ManageMe {
     requires java.sql;
 
     opens sample;
+    opens sample.assets;
 }

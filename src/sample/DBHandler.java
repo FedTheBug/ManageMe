@@ -64,5 +64,16 @@ public class DBHandler extends Config{
             e.printStackTrace();
         }
     }
+    public int GetAllTask(int UserID) throws SQLException {
+        String query = "SELECT COUNT(*) FROM " + Const.TASKS_TABLE + " WHERE " + Const.USERS_ID + "=?";
+
+        PreparedStatement preparedStatement = getDbConnection().prepareStatement(query);
+        preparedStatement.setInt(1, UserID);
+        ResultSet resultSet = preparedStatement.executeQuery();
+        while ((resultSet.next())){
+            return resultSet.getInt(1);
+        }
+        return resultSet.getInt(1);
+    }
 
 }

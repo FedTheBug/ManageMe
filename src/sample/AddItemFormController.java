@@ -2,9 +2,11 @@ package sample;
 
 import com.jfoenix.controls.JFXButton;
 import java.net.URL;
+import java.sql.SQLException;
 import java.util.Calendar;
 import java.util.ResourceBundle;
 import javafx.fxml.FXML;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import java.util.Date;
@@ -31,6 +33,12 @@ public class AddItemFormController{
     private JFXButton SaveTaskButton;
 
     @FXML
+    private Label SuccessLabel;
+
+    @FXML
+    private JFXButton TasksButton;
+
+    @FXML
     void initialize()  {
         dbHandler = new DBHandler();
         SaveTaskButton.setOnAction(event -> {
@@ -42,13 +50,28 @@ public class AddItemFormController{
             String TaskDescription = DescriptionField.getText().trim();
 
             if(!TaskText.equals("") || !TaskDescription.equals("")){
-                System.out.println("UserID: "+ AddItemController.UserID);
-                task.setTask(TaskText);
+                 task.setTask(TaskText);
                 task.setUserID(AddItemController.UserID);
                 task.setDateCreated(timestamp);
                 task.setDescription(TaskDescription);
 
                 dbHandler.InsertTask(task);
+
+                SuccessLabel.setVisible(true);
+                TasksButton.setVisible(true);
+                int taskNumber = 0;
+                try {
+                    taskNumber = dbHandler.GetAllTask(AddItemController.UserID);
+                } catch (SQLException throwables) {
+                    throwables.printStackTrace();
+                }
+                TasksButton.setText("My Tasks: "+"[" + taskNumber +"]");
+                TaskField.setText("");
+                DescriptionField.setText("");
+                TasksButton.setOnAction(event1 -> {
+
+                });
+
                 System.out.println("Task Added Successfully");
             }
             else{

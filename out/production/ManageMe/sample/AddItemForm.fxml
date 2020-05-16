@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
@@ -14,5 +15,7 @@
             <Font size="15.0" />
          </font>
       </JFXButton>
+      <Label fx:id="SuccessLabel" layoutX="285.0" layoutY="292.0" prefHeight="18.0" prefWidth="129.0" text="Task Added Successfully" textFill="WHITE" visible="false" />
+      <JFXButton fx:id="TasksButton" layoutX="577.0" layoutY="297.0" style="-fx-background-color: #373737;" text="My Tasks! (3)" textFill="WHITE" visible="false" />
    </children>
 </AnchorPane>

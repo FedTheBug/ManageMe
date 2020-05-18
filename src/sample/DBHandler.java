@@ -76,4 +76,15 @@ public class DBHandler extends Config{
         return resultSet.getInt(1);
     }
 
+    public ResultSet GetTaskByUser(int UserID) throws SQLException {
+        ResultSet ResultTasks = null;
+        String query = "SELECT * FROM " + Const.TASKS_TABLE + " WHERE " + Const.USERS_ID + "=?";
+        PreparedStatement preparedStatement = getDbConnection().prepareStatement(query);
+        preparedStatement.setInt(1, UserID);
+
+        ResultTasks = preparedStatement.executeQuery();
+
+        return ResultTasks;
+    }
+
 }

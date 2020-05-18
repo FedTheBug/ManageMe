@@ -4,6 +4,10 @@ import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXListCell;
 import com.jfoenix.controls.JFXListView;
 import java.net.URL;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Timestamp;
+import java.time.LocalDateTime;
 import java.util.ResourceBundle;
 
 import javafx.collections.FXCollections;
@@ -36,46 +40,31 @@ public class ListController {
     private JFXButton SaveTaskButton;
 
     @FXML
-    private JFXListView<String> TaskList;
+    private JFXListView<Task> TaskList;
 
-    ObservableList<String> ListView = FXCollections.observableArrayList(
-            "Java",
-            "C++",
-            "Python"
-    );
+    private ObservableList<Task> tasks;
+
+    private DBHandler dbHandler;
 
     @FXML
-    void initialize() {
-        TaskList.setItems(ListView);
-        TaskList.setCellFactory(param -> new JFXCell());
+    void initialize() throws SQLException {
+
+        tasks = FXCollections.observableArrayList();
+        DBHandler dbHandler = new DBHandler();
+        ResultSet resultSet = dbHandler.GetTaskByUser(AddItemController.UserID);
+        while(resultSet.next()){
+            Task task = new Task();
+            task.setTask(resultSet.getString("task"));
+            task.setDateCreated(resultSet.getTimestamp(("DateCreated")));
+            task.setDescription(resultSet.getString("description"));
+            System.out.println("User Tasks: " + resultSet.getString("task"));
+            tasks.addAll(task);
+        }
+
+
+        TaskList.setItems(tasks);
+        TaskList.setCellFactory(CellController -> new CellController());
     }
 
-    static class JFXCell extends JFXListCell<String> {
-        HBox hBox = new HBox();
-        Button HelloButton = new Button("Hello");
-        Label Task = new Label() ;
 
-        Pane pane = new Pane();
-        Image icon = new Image("/sample/assets/addItem.png");
-        ImageView IconImg = new ImageView(icon);
-
-
-        public JFXCell() {
-            super();
-
-            hBox.getChildren().addAll(IconImg, Task, HelloButton);
-            hBox.setHgrow(pane, Priority.ALWAYS);
-
-        }
-        public void updateItem(String TaskName, boolean empty){
-            super.updateItem(TaskName, empty);
-            setText(null);
-            setGraphic(null);
-
-            if(TaskName != null && !empty){
-                Task.setText(TaskName);
-                setGraphic(hBox);
-            }
-        }
-    }
 }

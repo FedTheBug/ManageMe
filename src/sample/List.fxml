@@ -2,6 +2,7 @@
 
 <?import com.jfoenix.controls.JFXButton?>
 <?import com.jfoenix.controls.JFXListView?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.effect.DropShadow?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -9,17 +10,26 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="700.0" style="-fx-background-color: #616161;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.ListController">
    <children>
-      <TextField fx:id="TaskField" layoutX="48.0" layoutY="51.0" prefHeight="33.0" prefWidth="302.0" promptText="Task" />
-      <TextField fx:id="DescriptionField" layoutX="48.0" layoutY="98.0" prefHeight="113.0" prefWidth="302.0" promptText="Description" />
-      <JFXButton fx:id="SaveTaskButton" layoutX="157.0" layoutY="225.0" style="-fx-background-color: #373737;" text="Save Task" textFill="WHITE">
+      <TextField fx:id="TaskField" layoutX="35.0" layoutY="134.0" prefHeight="34.0" prefWidth="212.0" promptText="Task" />
+      <TextField fx:id="DescriptionField" layoutX="35.0" layoutY="181.0" prefHeight="114.0" prefWidth="212.0" promptText="Description" />
+      <JFXButton fx:id="SaveTaskButton" layoutX="99.0" layoutY="308.0" style="-fx-background-color: #373737;" text="Save Task" textFill="WHITE">
          <font>
             <Font size="15.0" />
          </font>
       </JFXButton>
-      <JFXListView fx:id="TaskList" layoutX="387.0" layoutY="26.0" prefHeight="231.0" prefWidth="292.0">
+      <JFXListView fx:id="TaskList" layoutX="259.0" layoutY="109.0" prefHeight="231.0" prefWidth="407.0">
          <effect>
             <DropShadow />
          </effect>
       </JFXListView>
+      <AnchorPane prefHeight="88.0" prefWidth="700.0" style="-fx-background-color: #373737;">
+         <children>
+            <Label layoutX="226.0" layoutY="3.0" text="Manage Me!" textFill="WHITE">
+               <font>
+                  <Font size="46.0" />
+               </font>
+            </Label>
+         </children>
+      </AnchorPane>
    </children>
 </AnchorPane>

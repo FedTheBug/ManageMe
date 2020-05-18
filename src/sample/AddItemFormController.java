@@ -57,7 +57,7 @@ public class AddItemFormController{
             String TaskDescription = DescriptionField.getText().trim();
 
             if(!TaskText.equals("") || !TaskDescription.equals("")){
-                 task.setTask(TaskText);
+                task.setTask(TaskText);
                 task.setUserID(AddItemController.UserID);
                 task.setDateCreated(timestamp);
                 task.setDescription(TaskDescription);

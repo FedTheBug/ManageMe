@@ -8,6 +8,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Timestamp;
 import java.time.LocalDateTime;
+import java.util.Calendar;
 import java.util.ResourceBundle;
 
 import javafx.collections.FXCollections;
@@ -49,6 +50,7 @@ public class ListController {
     @FXML
     void initialize() throws SQLException {
 
+
         tasks = FXCollections.observableArrayList();
         DBHandler dbHandler = new DBHandler();
         ResultSet resultSet = dbHandler.GetTaskByUser(AddItemController.UserID);
@@ -65,6 +67,30 @@ public class ListController {
 
         TaskList.setItems(tasks);
         TaskList.setCellFactory(CellController -> new CellController());
+        SaveTaskButton.setOnAction(event -> {
+            try {
+                AddNewTask();
+            } catch (SQLException throwables) {
+                throwables.printStackTrace();
+            }
+        });
+    }
+
+    public void AddNewTask() throws SQLException {
+            if(!TaskField.getText().equals("") || !DescriptionField.getText().equals("")){
+                Task MyNewTask = new Task();
+                Calendar calendar = Calendar.getInstance();
+                java.sql.Timestamp timestamp = new java.sql.Timestamp(Calendar.getInstance().getTimeInMillis());
+                MyNewTask.setTask(TaskField.getText().trim());
+                MyNewTask.setUserID(AddItemController.UserID);
+                MyNewTask.setDateCreated(timestamp);
+                MyNewTask.setDescription(DescriptionField.getText().trim());
+                dbHandler = new DBHandler();
+                dbHandler.InsertTask(MyNewTask);
+                TaskField.setText("");
+                DescriptionField.setText("");
+                initialize();
+            }
     }
 
 

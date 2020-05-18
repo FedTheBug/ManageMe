@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+
+
+<AnchorPane prefHeight="358.0" prefWidth="439.0" style="-fx-background-color: #616161;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.UpdateTaskController">
+   <children>
+      <TextField fx:id="UpdateTaskField" layoutX="125.0" layoutY="63.0" prefHeight="30.0" prefWidth="189.0" promptText="Task" />
+      <TextField fx:id="UpdateDescriptionField" layoutX="61.0" layoutY="130.0" prefHeight="134.0" prefWidth="317.0" promptText="Description" />
+      <JFXButton fx:id="UpdateButton" layoutX="193.0" layoutY="288.0" style="-fx-background-color: #614242;" text="Update" textFill="WHITE" />
+   </children>
+</AnchorPane>

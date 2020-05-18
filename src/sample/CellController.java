@@ -9,9 +9,12 @@ import java.util.ResourceBundle;
 import com.jfoenix.controls.JFXListCell;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
+import javafx.stage.Stage;
 
 public class CellController extends JFXListCell<Task> {
 
@@ -38,6 +41,9 @@ public class CellController extends JFXListCell<Task> {
 
     @FXML
     private ImageView DeleteButton;
+
+    @FXML
+    private ImageView UpdateListButton;
 
     private FXMLLoader fxmlLoader;
 
@@ -70,6 +76,55 @@ public class CellController extends JFXListCell<Task> {
             DescriptionLabel.setText(myTask.getDescription());
 
             int taskid = myTask.getTaskID();
+
+//            UpdateListButton.setOnMouseClicked(event -> {
+//
+//
+//                FXMLLoader loader = new FXMLLoader();
+//                loader.setLocation(getClass().getResource("sample/UpdateTaskForm.fxml"));
+//                try {
+//                    loader.load();
+//                } catch (IOException e) {
+//                    e.printStackTrace();
+//                }
+//
+//                Parent root = loader.getRoot();
+//                Stage stage = new Stage();
+//                stage.setScene(new Scene(root));
+//                UpdateTaskController updateTaskController = loader.getController();
+//                updateTaskController.setTaskField(myTask.getTask());
+//                updateTaskController.setUpdateDescriptionField(myTask.getDescription());
+//
+//                updateTaskController.updateTaskButton.setOnAction(event1 -> {
+//
+//                    Calendar calendar = Calendar.getInstance();
+//
+//                    java.sql.Timestamp timestamp =
+//                            new java.sql.Timestamp(calendar.getTimeInMillis());
+//
+//                    try {
+//
+//                        System.out.println("taskid " + myTask.getTaskId());
+//
+//                        databaseHandler.updateTask(timestamp, updateTaskController.getDescription(),
+//                                updateTaskController.getTask(), myTask.getTaskId());
+//
+//                        //update our listController
+//                        // updateTaskController.refreshList();
+//                    } catch (SQLException e) {
+//                        e.printStackTrace();
+//                    } catch (ClassNotFoundException e) {
+//                        e.printStackTrace();
+//                    }
+//
+//                });
+//
+//                stage.show();
+//
+//
+//            });
+//            });
+
             DeleteButton.setOnMouseClicked(event ->{
                 dbHandler = new DBHandler();
                 try {

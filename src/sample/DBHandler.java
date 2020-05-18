@@ -16,7 +16,7 @@ public class DBHandler extends Config{
         return dbConnection;
     }
     public void DeleteTask(int UserID, int TaskID) throws SQLException {
-        String query = "DELETE FROM " + Const.TASKS_TABLE + " WHERE " + Const.USERS_ID + "=?"  + " AND "+ Const.TASKS_ID + "=?";
+        String query = "DELETE FROM " + Const.TASKS_TABLE + " WHERE " + Const.USERS_ID + "=?"  + " AND  "+ Const.TASKS_ID + "=?";
 
         PreparedStatement preparedStatement = getDbConnection().prepareStatement(query);
         preparedStatement.setInt(1,UserID);

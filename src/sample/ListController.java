@@ -54,6 +54,7 @@ public class ListController {
         ResultSet resultSet = dbHandler.GetTaskByUser(AddItemController.UserID);
         while(resultSet.next()){
             Task task = new Task();
+            task.setTaskID(resultSet.getInt("taskid"));
             task.setTask(resultSet.getString("task"));
             task.setDateCreated(resultSet.getTimestamp(("DateCreated")));
             task.setDescription(resultSet.getString("description"));

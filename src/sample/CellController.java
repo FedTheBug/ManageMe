@@ -2,6 +2,7 @@ package sample;
 
 import java.io.IOException;
 import java.net.URL;
+import java.sql.SQLException;
 import java.sql.SQLOutput;
 import java.util.ResourceBundle;
 
@@ -40,6 +41,7 @@ public class CellController extends JFXListCell<Task> {
 
     private FXMLLoader fxmlLoader;
 
+    private DBHandler dbHandler;
     @FXML
     void initialize() {
 
@@ -67,7 +69,17 @@ public class CellController extends JFXListCell<Task> {
             DateLabel.setText(myTask.getDateCreated().toString());
             DescriptionLabel.setText(myTask.getDescription());
 
-            System.out.println("User ID From Cell Controller : "+AddItemController.UserID);
+            int taskid = myTask.getTaskID();
+            DeleteButton.setOnMouseClicked(event ->{
+                dbHandler = new DBHandler();
+                try {
+                    dbHandler.DeleteTask(AddItemController.UserID, taskid);
+                } catch (SQLException throwables) {
+                    throwables.printStackTrace();
+                }
+                getListView().getItems().remove(getItem());
+            });
+
             setText(null);
             setGraphic(RootAnchorPane);
         }

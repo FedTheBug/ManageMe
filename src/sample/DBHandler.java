@@ -5,6 +5,7 @@ import java.sql.*;
 public class DBHandler extends Config{
     Connection dbConnection;
 
+
     public Connection getDbConnection(){
         String connectionString = "jdbc:mysql://"+ dbHost+":" + dbPort + "/" + dbName;
         try {
@@ -13,6 +14,16 @@ public class DBHandler extends Config{
             throwables.printStackTrace();
         }
         return dbConnection;
+    }
+    public void DeleteTask(int UserID, int TaskID) throws SQLException {
+        String query = "DELETE FROM " + Const.TASKS_TABLE + " WHERE " + Const.USERS_ID + "=?"  + " AND "+ Const.TASKS_ID + "=?";
+
+        PreparedStatement preparedStatement = getDbConnection().prepareStatement(query);
+        preparedStatement.setInt(1,UserID);
+        preparedStatement.setInt(2,TaskID);
+        preparedStatement.execute();
+        preparedStatement.close();
+
     }
     public void SignUpUser(User user){
         String insert = "INSERT INTO " + Const.USERS_TABLE + "(" + Const.USERS_FIRSTNAME + "," + Const.USERS_LASTNAME + ","+
@@ -75,7 +86,6 @@ public class DBHandler extends Config{
         }
         return resultSet.getInt(1);
     }
-
     public ResultSet GetTaskByUser(int UserID) throws SQLException {
         ResultSet ResultTasks = null;
         String query = "SELECT * FROM " + Const.TASKS_TABLE + " WHERE " + Const.USERS_ID + "=?";
